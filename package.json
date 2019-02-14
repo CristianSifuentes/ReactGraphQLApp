@@ -1,0 +1,31 @@
+{
+  "name": "reactgraphqlapp",
+  "version": "1.0.0",
+  "description": "Query nos permite leer los registros, forma de extraer la información\r En el query puedo pasar parametros, y el query en GraphQL es universal (la sintaxi siempre es igual)\r La especificación de \"Query\" es opcional",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app/index.js --exec babel-node app/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianSifuentes/ReactGraphQLApp.git"
+  },
+  "author": "Cristian Sifuentes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristianSifuentes/ReactGraphQLApp/issues"
+  },
+  "homepage": "https://github.com/CristianSifuentes/ReactGraphQLApp#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/node": "^7.0.0",
+    "nodemon": "^1.18.4"
+  }
+}
