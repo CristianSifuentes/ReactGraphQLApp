@@ -45,6 +45,19 @@
 //   hola: () => "Hola mundo desde graphql" 
 // }
 
+//Clase con los datos del cliente
+class Cliente {
+  constructor(id, {nombre, apellido, empresa, email}){
+    this.id = id;
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.empresa = empresa;
+    this.email = email
+  }
+}
+
+const ClientesDb = {};
+
 const root = { 
   cliente: () => {
     
@@ -53,19 +66,14 @@ const root = {
       "nombre": "Cristian",
       "apellido": "Sifuentes",
       "empresa": "sin",
-      "emails": [
-        {
-          email: "correo1"
-        },
-        {
-          email: "correo2"
-        },
-        {
-          email: "correo3"
-        }
-      ]
-    }
+      "email": "uno"
+      }
+    },
 
+  crearCliente : ({input}) => {
+    const id = require('crypto').randomBytes(10).toString('hex');
+    ClientesDb[id] = input;
+    return new Cliente(id, input);
   }
 }
 
