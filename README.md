@@ -11,7 +11,7 @@ La especificación de "Mutation" es obligatoria
 
 # Resolvers
 Es especifico del lenguaje que utilices y se crean en el servidor.
-
+Funcion que nos va a dar los resultados de nuestras consultas
 
 # Shema
 
