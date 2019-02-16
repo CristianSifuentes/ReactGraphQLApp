@@ -33,7 +33,6 @@
  //importar
  import graphqlHTTP  from 'express-graphql';
  import schema from './schema';
-
  const app = express();
 
  app.get('/', (req, res) => {
@@ -42,8 +41,32 @@
 
 
  //Resolver
-const root = {
-  hola: () => "Hola mundo desde graphql" 
+// const root = {
+//   hola: () => "Hola mundo desde graphql" 
+// }
+
+const root = { 
+  cliente: () => {
+    
+    return {
+      "id": 123123123,
+      "nombre": "Cristian",
+      "apellido": "Sifuentes",
+      "empresa": "sin",
+      "emails": [
+        {
+          email: "correo1"
+        },
+        {
+          email: "correo2"
+        },
+        {
+          email: "correo3"
+        }
+      ]
+    }
+
+  }
 }
 
 app.use('/graphql', graphqlHTTP({
@@ -55,10 +78,8 @@ app.use('/graphql', graphqlHTTP({
   graphiql : true
 
 }));
-console.log('Server running at http://127.0.0.1:1337/');
 
-
-// app.listen(8090, () => console.log('El servidor está funcionando'));
+ app.listen(8090, () => console.log('El servidor está funcionando'));
 
 // import http from 'http';
 
