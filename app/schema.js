@@ -19,6 +19,7 @@ const schema = buildSchema(`
     producto: String
     precio: Int
   }
+  """  Asigna categoria del cliente """
   enum TipoCliente {
     BASICO
     PREMIUM
@@ -34,6 +35,8 @@ const schema = buildSchema(`
     producto: String
     precio: Int
   }
+
+  """  Campos para crear clientes nuevos """
   input ClienteInput {
     id: ID
     nombre: String!
@@ -45,8 +48,10 @@ const schema = buildSchema(`
     pedidos: [PedidoInput]
 
   }
-
+  """  Mutation para crear clientes nuevos """
   type Mutation {
+    #El nombre del resolver, Input con datos y valor que retorna
+    """  te permite crear nuevos clientes """
     crearCliente(input: ClienteInput): Cliente
   }
 
