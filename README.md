@@ -15,6 +15,17 @@ Funcion que nos va a dar los resultados de nuestras consultas
 
 # Shema
 
+# Tipos de datos
+
+int número entero
+float decimales
+string 
+id numero unico
+boolean true /false
+
+# Tipos de datos enumerados
+
+
 
 #Dependencias
 

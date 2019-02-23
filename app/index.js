@@ -33,6 +33,12 @@
  //importar
  import graphqlHTTP  from 'express-graphql';
  import schema from './schema';
+
+//resolvers
+ import resolvers from './resolvers';
+
+ const root = resolvers;
+
  const app = express();
 
  app.get('/', (req, res) => {
@@ -40,42 +46,6 @@
  });
 
 
- //Resolver
-// const root = {
-//   hola: () => "Hola mundo desde graphql" 
-// }
-
-//Clase con los datos del cliente
-class Cliente {
-  constructor(id, {nombre, apellido, empresa, email}){
-    this.id = id;
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.empresa = empresa;
-    this.email = email
-  }
-}
-
-const ClientesDb = {};
-
-const root = { 
-  cliente: () => {
-    
-    return {
-      "id": 123123123,
-      "nombre": "Cristian",
-      "apellido": "Sifuentes",
-      "empresa": "sin",
-      "email": "uno"
-      }
-    },
-
-  crearCliente : ({input}) => {
-    const id = require('crypto').randomBytes(10).toString('hex');
-    ClientesDb[id] = input;
-    return new Cliente(id, input);
-  }
-}
 
 app.use('/graphql', graphqlHTTP({
   //Que schema va a utilizar
