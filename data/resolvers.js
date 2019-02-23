@@ -18,18 +18,18 @@ class Cliente {
   }
   
   const ClientesDb = {};
-  
-  const resolvers = { 
 
-    getCliente: ({id}) => {
-       return new Cliente(id, ClientesDb[id]);
+  export const resolvers = {
+    Query: {
+      getCliente: ({id}) => {
+        return new Cliente(id, ClientesDb[id]);
+     },
     },
-    crearCliente : ({input}) => {
-      const id = require('crypto').randomBytes(10).toString('hex');
-      ClientesDb[id] = input;
-      return new Cliente(id, input);
+    Mutation: {
+      crearCliente : ({input}) => {
+        const id = require('crypto').randomBytes(10).toString('hex');
+        ClientesDb[id] = input;
+        return new Cliente(id, input);
+      }
     }
   }
-  
-
-  export default resolvers;
