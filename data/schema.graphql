@@ -53,6 +53,9 @@ type Cliente {
     crearCliente(input: ClienteInput): Cliente
 
 
-    """  te permite crear nuevos clientes """
+    """  te permite actualizar clientes """
     actualizarCliente(input: ClienteInput): Cliente
+
+        """  te permite actualizar clientes """
+    eliminarCliente(id: ID!): String
   }

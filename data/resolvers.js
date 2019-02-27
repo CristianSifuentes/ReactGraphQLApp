@@ -59,10 +59,23 @@ import { Clientes } from './db'
           );
         });
 
+      },
+      eliminarCliente: (root, { id }) => {
+
+        return new Promise((resolve, object) => {
+         
+
+          Clientes.findOneAndRemove(
+            { _id: id } ,
+            (error) => {
+              if(error){
+                rejects (error);
+              }else{
+                resolve("Se eliminó correctamente");
+              }
+            }
+          );
+        });
       }
     }
   }
-
-  /*
-  (1) ObjectId("")
-  */
