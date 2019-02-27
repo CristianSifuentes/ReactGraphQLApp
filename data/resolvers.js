@@ -40,6 +40,29 @@ import { Clientes } from './db'
 
         });
 
+      },
+      actualizarCliente : (root, {input}) => {
+       
+        return new Promise((resolve, object) => {
+         
+          Clientes.findOneAndUpdate(
+            { _id: input.id } ,
+            input , 
+            { new: true } ,
+            (error, cliente) => {
+              if(error){
+                rejects (error);
+              }else{
+                resolve(cliente);
+              }
+            }
+          );
+        });
+
       }
     }
   }
+
+  /*
+  (1) ObjectId("")
+  */
