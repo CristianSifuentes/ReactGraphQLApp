@@ -7,21 +7,6 @@
 import mongoose from 'mongoose';
 import { Clientes } from './db'
 
-
-//Clase con los datos del cliente
-class Cliente {
-    constructor(id, {nombre, apellido, empresa, emails, edad, tipo, pedidos}){
-      this.id = id;
-      this.nombre = nombre;
-      this.apellido = apellido;
-      this.empresa = empresa;
-      this.emails = emails;
-      this.edad = edad;
-      this.tipo = tipo
-      this.pedidos = pedidos
-    }
-  }
-  
   export const resolvers = {
     Query: {
       getCliente: ({id}) => {
@@ -32,16 +17,18 @@ class Cliente {
       crearCliente : (root, {input}) => {
        
         const nuevoCliente = new Clientes({
-          nombre = input.nombre,
-          apellido = input.apellido,
-          empresa = input.empresa,
-          emails = input.emails,
-          edad = input.edad,
-          tipo = input.tipo,
-          pedidos = input.pedidos
+          nombre : input.nombre,
+          apellido : input.apellido,
+          empresa : input.empresa,
+          emails : input.emails,
+          edad : input.edad,
+          tipo : input.tipo,
+          pedidos : input.pedidos
         });
 
         nuevoCliente.id = nuevoCliente._id;
+
+
         return new Promise(( resolve, object ) => {
             nuevoCliente.save((error) => {
               if(error){
