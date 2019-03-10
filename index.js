@@ -50,7 +50,7 @@ app.use('/graphql', graphqlHTTP({
 
 }));
 
- app.listen(8090, () => console.log('El servidor está funcionando'));
+ app.listen(8091, () => console.log('El servidor está funcionando'));
 
 // import http from 'http';
 
