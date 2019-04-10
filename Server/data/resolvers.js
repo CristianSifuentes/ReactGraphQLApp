@@ -1,9 +1,3 @@
- //Resolver
-// const root = {
-//   hola: () => "Hola mundo desde graphql" 
-// }
-
-
 import mongoose from 'mongoose';
 import { Clientes } from './db'
 
